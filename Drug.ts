@@ -21,8 +21,10 @@ export class Drug {
 		let name: string = '';
 		const partsLength: number = config.drugParts.length;
 		for (let i = 0; i < this.data.length; i += 2) {
-			name += config.drugParts[this.data[i % partsLength]];
-			name += config.drugParts[this.data[(i + 1) % partsLength]];
+			//const tens = String(this.data[i]);
+			const index : number = (Number(String(this.data[i]) + String(this.data[(i + 1)]))) % partsLength;
+			console.log(index);
+			name += config.drugParts[index];
 		}
 		return name;
 	}

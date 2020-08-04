@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/NickCopi/drugmakerextremebackend.git"
+    "url": ""
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/NickCopi/drugmakerextremebackend/issues"
+    "url": ""
   },
-  "homepage": "https://gitlab.com/NickCopi/drugmakerextremebackend#readme"
+  "homepage": ""
 }
