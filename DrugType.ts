@@ -1,0 +1,5 @@
+export enum DrugType{
+	STIMULANT,
+	DEPRESSANT,
+	HALLUCINOGEN
+}
