@@ -3,4 +3,5 @@ export interface Item {
     getName(): string;
     getGrams(): number;
     getStackCost(): number;
+    assignChildren(): void;
 }

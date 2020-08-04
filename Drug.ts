@@ -41,5 +41,7 @@ export class Drug implements Item {
 		}
 		return yieldAmount * 0.01;
 	}
+	public assignChildren(): void {
+	}
 
 }
