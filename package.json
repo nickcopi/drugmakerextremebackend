@@ -1,0 +1,21 @@
+{
+  "name": "drugmakerbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build" : "build.sh",
+    "start": "node build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/NickCopi/drugmakerextremebackend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/NickCopi/drugmakerextremebackend/issues"
+  },
+  "homepage": "https://gitlab.com/NickCopi/drugmakerextremebackend#readme"
+}
