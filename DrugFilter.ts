@@ -26,6 +26,25 @@ export class DrugFilter {
             (Math.floor(Math.random() * level) + 1) * 10
         );
     }
+    public getDescription(): string {
+        switch(this.filterType){
+            case DrugFilterType.LEVEL:
+                return `something of strength ${this.drug.getLevel()} or higher.`;
+                break;
+            case DrugFilterType.QUANTITY:
+                return `in bulk of ${this.drug.getGrams()} g units.`;
+                break;
+            case DrugFilterType.DATA_MATCH:
+                return `something with "${config.drugParts[this.drug.getData().join('')]}" in the name.`;
+                break;
+            case DrugFilterType.ANY:
+                return `anything but for ${config.anyReduction} of the price.`;
+                break;
+            default:
+                console.error('Unknown filter type?');
+                return `nothing.`;
+        }
+    }
     public getDrug(): Drug {
         return this.drug;
     }

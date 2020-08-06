@@ -7,20 +7,26 @@ import * as config from './config.json';
 
 export class Client {
     private drugFilter: DrugFilter;
-    public static randomName(): string {
-        return config.titles[Math.floor(Math.random() * config.titles.length)] +
-            config.names[Math.floor(Math.random() * config.names.length)];
-    }
+    private name: string;
 
     public constructor(level: number, name: string = Client.randomName()) {
         this.drugFilter = new DrugFilter(level);
+        this.name = name;
+    }
+
+    public getName(): string {
+        return this.name;
+    }
+
+    public getDescription(): string {
+        return `${this.name} is looking to buy ` + this.drugFilter.getDescription();
     }
     public sellDrug(drug: Drug, wallet: Wallet, drugController: DrugController, quantity: number): SellResult {
         if (!this.drugFilter.matchesFilter(drug)) {
             return new SellResult(false, `The client is not looking for this kind of drug.`);
         }
         quantity *= this.drugFilter.getQuantityMultiplier();
-        if(quantity > drug.getGrams())
+        if (quantity > drug.getGrams())
             return new SellResult(false, `You do not have enough of that drug to make that deal.`);
         const profit: number = Math.round(drug.getCost() * quantity * this.drugFilter.getPriceMultiplier());
         wallet.addMoney(profit);
@@ -33,5 +39,9 @@ export class Client {
     public assignChildren(): void {
         this.drugFilter = (<any>Object).assign(new DrugFilter(null), this.drugFilter);
         this.drugFilter.assignChildren();
+    }
+    public static randomName(): string {
+        return config.titles[Math.floor(Math.random() * config.titles.length)] + ' ' +
+            config.names[Math.floor(Math.random() * config.names.length)];
     }
 }

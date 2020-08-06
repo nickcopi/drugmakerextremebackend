@@ -21,11 +21,12 @@ export class Constants {
         this.Clients[0].getDrugFilter().setDrug(new Drug([1, 2], 1, 1));
         this.Clients[0].getDrugFilter().setFilterType(DrugFilterType.DATA_MATCH);
         this.Clients.push(new Client(1, 'Dude Duke'));
-        this.Clients[1].getDrugFilter().setDrug(new Drug([1, 2], 1, 1));
+        this.Clients[1].getDrugFilter().setDrug(new Drug([1, 2], 4, 1));
         this.Clients[1].getDrugFilter().setFilterType(DrugFilterType.LEVEL);
         this.Clients.push(new Client(1, 'Junkie Joe'));
         this.Clients[2].getDrugFilter().setDrug(new Drug([1, 2], 1, 1));
         this.Clients[2].getDrugFilter().setFilterType(DrugFilterType.ANY);
+        this.Clients.push(new Client(1));
 
 
         return this.Clients;
