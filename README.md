@@ -11,3 +11,4 @@
 - [ ] Attempt to purchase upgrade.
 - [ ] Get save data.
 - [ ] Restore save data.
+- [x] Get player money.

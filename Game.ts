@@ -36,6 +36,9 @@ export class Game {
 	public sellToClient(drug: Drug, client: Client, quantity: number = 1) {
 		return client.sellDrug(drug, this.save.getWallet(), this.save.getDrugController(), quantity);
 	}
+	public getMoney():number{
+		return this.save.getWallet().getMoney();
+	}
 
 
 
