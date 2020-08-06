@@ -8,7 +8,7 @@
 - [ ] Get all clients.
 - [x] Get all dealers.
 - [ ] Attempt to sell to client.
-- [ ] Attempt to buy from dealer.
+- [x] Attempt to buy from dealer.
 - [ ] Attempt to purchase upgrade.
 - [ ] Get save data.
 - [ ] Restore save data.

@@ -12,6 +12,9 @@ export class Drug implements Item {
 	public getGrams(): number {
 		return this.grams;
 	}
+	public addGrams(grams: number): void {
+		this.grams += grams;
+	}
 	public getName(): string {
 		let name: string = '';
 		const partsLength: number = config.drugParts.length;
@@ -34,6 +37,9 @@ export class Drug implements Item {
 			yieldAmount -= 10;
 		}
 		return yieldAmount * 0.01;
+	}
+	public equals(drug: Drug): Boolean {
+		return drug.data.join('') === this.data.join('') && drug.level === this.level;
 	}
 	public assignChildren(): void {
 	}

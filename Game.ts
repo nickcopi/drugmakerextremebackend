@@ -3,6 +3,7 @@ import { Drug } from './Drug';
 import { DrugType } from './DrugType.js';
 import { Save } from './Save.js';
 import { Dealer } from './Dealer.js';
+import { PurchaseResult } from './PurchaseResult.js';
 export class Game {
 	private save: Save;
 	public constructor() {
@@ -17,9 +18,12 @@ export class Game {
 	public getDrugs(): Drug[] {
 		return this.save.getDrugs();
 	}
-	public getDealers(): Dealer[]{
-        return this.save.getDealers();
-    }
+	public getDealers(): Dealer[] {
+		return this.save.getDealers();
+	}
+	public buyFromDealer(dealer: Dealer, quantity: number = 1): PurchaseResult {
+		return dealer.purchase(quantity, this.save.getWallet(), this.save.getDrugController());
+	}
 
 
 
