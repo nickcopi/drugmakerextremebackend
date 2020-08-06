@@ -28,7 +28,7 @@ export class Client {
         quantity *= this.drugFilter.getQuantityMultiplier();
         if (quantity > drug.getGrams())
             return new SellResult(false, `You do not have enough of that drug to make that deal.`);
-        const profit: number = Math.round(drug.getCost() * quantity * this.drugFilter.getPriceMultiplier());
+        const profit: number = Math.ceil(drug.getCost() * quantity * this.drugFilter.getPriceMultiplier());
         wallet.addMoney(profit);
         drugController.removeDrug(drug, quantity);
         return new SellResult(true, `Sold ${quantity} g of ${drug.getName()} for $${profit}.`);

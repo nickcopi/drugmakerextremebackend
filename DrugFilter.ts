@@ -21,7 +21,7 @@ export class DrugFilter {
                 break;
         }
         this.drug = new Drug(
-            [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)],
+            [...String(Math.floor(Math.random()*config.drugParts.length))].map(s=>Number(s)),
             level * (Math.floor(Math.random() * 5) + 1),
             (Math.floor(Math.random() * level) + 1) * 10
         );
