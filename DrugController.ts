@@ -10,19 +10,26 @@ export class DrugController {
         return this.drugs;
     }
     public addDrug(newDrug: Drug): void {
-        let addedDrug:Boolean = false;
-        this.drugs.forEach(drug=>{
-            if(drug.equals(newDrug)){
+        let addedDrug: Boolean = false;
+        this.drugs.forEach(drug => {
+            if (drug.equals(newDrug)) {
                 drug.addGrams(newDrug.getGrams());
                 addedDrug = true;
             }
         });
-        if(!addedDrug)
+        if (!addedDrug)
             this.drugs.push(newDrug);
+    }
+    public removeDrug(oldDrug: Drug, quantity: number): void {
+        if(quantity < oldDrug.getGrams()){
+            oldDrug.removeGrams(quantity);
+            return;
+        }
+        this.drugs = this.drugs.filter(drug=>!drug.equals(oldDrug));
     }
     public assignChildren(): void {
         this.drugs = this.drugs.map(obj => {
-            const drug: Drug = (<any>Object).assign(new Drug(null, null, null), obj);
+            const drug: Drug = Object.assign(new Drug(null, null, null), obj);
             drug.assignChildren();
             return drug;
         });

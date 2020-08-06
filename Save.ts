@@ -15,7 +15,7 @@ export class Save {
     public constructor() {
         this.level = 1;
         this.wallet = new Wallet();
-        this.clients = [];
+        this.clients = Constants.defaultClients();
         this.dealers = Constants.defaultDealers();
         this.drugController = new DrugController();
     }
@@ -27,6 +27,9 @@ export class Save {
     }
     public getDealers(): Dealer[] {
         return this.dealers;
+    }
+    public getClients(): Client[] {
+        return this.clients;
     }
     public getWallet(): Wallet {
         return this.wallet;
@@ -41,7 +44,7 @@ export class Save {
             return dealer;
         });
         this.clients = this.clients.map(obj => {
-            const client: Client = (<any>Object).assign(new Client, obj);
+            const client: Client = (<any>Object).assign(new Client(null), obj);
             client.assignChildren();
             return client;
         });

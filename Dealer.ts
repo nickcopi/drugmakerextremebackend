@@ -14,6 +14,7 @@ export class Dealer {
     }
     public assignChildren(): void {
         this.item = (<any>Object).assign(new Drug(null, null, null), this.item)
+        this.item.assignChildren();
     }
     public purchase(quantity: number, wallet: Wallet, drugController: DrugController): PurchaseResult {
         const costDiff: number = wallet.getMoney() - this.item.getStackCost() * quantity;

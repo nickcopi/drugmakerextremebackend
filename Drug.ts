@@ -15,6 +15,9 @@ export class Drug implements Item {
 	public addGrams(grams: number): void {
 		this.grams += grams;
 	}
+	public removeGrams(grams: number): void {
+		this.grams -= grams;
+	}
 	public getName(): string {
 		let name: string = '';
 		const partsLength: number = config.drugParts.length;
@@ -24,6 +27,12 @@ export class Drug implements Item {
 			name += config.drugParts[index];
 		}
 		return name;
+	}
+	public getData(): number[] {
+		return this.data;
+	}
+	public getLevel(): number {
+		return this.level;
 	}
 	public getCost(): number {
 		return Math.round((this.data[Math.round(this.data.length * .75)] + this.data[Math.round(this.data.length * .25)]) * (this.level / 2));

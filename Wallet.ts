@@ -1,7 +1,7 @@
 export class Wallet {
     private money: number;
-    constructor(private startMoney?: number) {
-        this.money = startMoney || 0;
+    constructor(money: number = 0) {
+        this.money = money;
     }
     public getMoney(): number {
         return this.money;
