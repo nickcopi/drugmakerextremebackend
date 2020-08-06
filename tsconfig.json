@@ -3,6 +3,8 @@
     {
         "module": "commonjs",
         "target": "es6",
-        "lib": ["esnext", "dom"]
+        "lib": ["esnext", "dom"],
+        "outDir": "./build",
+        "resolveJsonModule": true
     }
 }
