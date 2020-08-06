@@ -10,6 +10,6 @@ export class Dealer {
         this.item = item;
     }
     public assignChildren(): void {
-        this.item = (<any>Object).assign(new Drug(null,null,null,null),this.item)
+        this.item = (<any>Object).assign(new Drug(null,null,null),this.item)
     }
 }

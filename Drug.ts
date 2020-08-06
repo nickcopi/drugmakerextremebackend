@@ -1,22 +1,16 @@
-import { DrugType } from './DrugType';
 import { Item } from './Item';
 import * as config from './config.json';
 export class Drug implements Item {
 	private data: number[];
 	private grams: number;
 	private level: number;
-	private type: DrugType;
-	public constructor(data: number[], level: number, grams: number, type: DrugType) {
+	public constructor(data: number[], level: number, grams: number) {
 		this.level = level;
 		this.data = data;
 		this.grams = grams;
-		this.type = type;
 	}
 	public getGrams(): number {
 		return this.grams;
-	}
-	public getType(): DrugType {
-		return this.type;
 	}
 	public getName(): string {
 		let name: string = '';
