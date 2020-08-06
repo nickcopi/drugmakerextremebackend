@@ -37,7 +37,7 @@ export class Client {
         return this.drugFilter;
     }
     public assignChildren(): void {
-        this.drugFilter = (<any>Object).assign(new DrugFilter(null), this.drugFilter);
+        this.drugFilter = Object.assign(new DrugFilter(null), this.drugFilter);
         this.drugFilter.assignChildren();
     }
     public static randomName(): string {

@@ -35,16 +35,16 @@ export class Save {
         return this.wallet;
     }
     public assignChildren(): void {
-        this.drugController = (<any>Object).assign(new DrugController, this.drugController);
+        this.drugController = Object.assign(new DrugController, this.drugController);
         this.drugController.assignChildren();
-        this.wallet = (<any>Object).assign(new Wallet, this.wallet);
+        this.wallet = Object.assign(new Wallet, this.wallet);
         this.dealers = this.dealers.map(obj => {
-            const dealer: Dealer = (<any>Object).assign(new Dealer(null, null), obj);
+            const dealer: Dealer = Object.assign(new Dealer(null, null), obj);
             dealer.assignChildren();
             return dealer;
         });
         this.clients = this.clients.map(obj => {
-            const client: Client = (<any>Object).assign(new Client(null), obj);
+            const client: Client = Object.assign(new Client(null), obj);
             client.assignChildren();
             return client;
         });

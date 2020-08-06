@@ -13,7 +13,7 @@ export class Dealer {
         this.item = item;
     }
     public assignChildren(): void {
-        this.item = (<any>Object).assign(new Drug(null, null, null), this.item)
+        this.item = Object.assign(new Drug(null, null, null), this.item)
         this.item.assignChildren();
     }
     public purchase(quantity: number, wallet: Wallet, drugController: DrugController): PurchaseResult {
@@ -23,9 +23,9 @@ export class Dealer {
         if (costDiff < 0)
             return new PurchaseResult(false, `Cannot afford ${quantity} g of ${this.item.getName()}. $${Math.abs(costDiff)} short!`, this.item, costDiff);
         wallet.removeMoney(this.item.getStackCost() * quantity);
-        const boughtDrug = (<any>Object).assign(new Drug(null, null, null), this.item);
+        const boughtDrug = Object.assign(new Drug(null, null, null), this.item);
         boughtDrug.assignChildren();
-        boughtDrug.quantity = quantity;
+        boughtDrug.setGrams(quantity);
         drugController.addDrug(boughtDrug);
         return new PurchaseResult(true, `Purchased ${quantity} g of ${this.item.getName()} for $${this.item.getStackCost() * quantity}.`, this.item, costDiff);
     }

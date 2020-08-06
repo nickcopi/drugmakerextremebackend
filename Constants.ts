@@ -26,6 +26,11 @@ export class Constants {
         this.Clients.push(new Client(1, 'Junkie Joe'));
         this.Clients[2].getDrugFilter().setDrug(new Drug([1, 2], 1, 1));
         this.Clients[2].getDrugFilter().setFilterType(DrugFilterType.ANY);
+
+        this.Clients.push(new Client(1, 'Tester Magoo'));
+        this.Clients[3].getDrugFilter().setDrug(new Drug([1, 2], 1, 5));
+        this.Clients[3].getDrugFilter().setFilterType(DrugFilterType.QUANTITY);
+
         this.Clients.push(new Client(1));
 
 

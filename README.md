@@ -4,9 +4,9 @@
 - [ ] Attempt to combine an existing drug with an existing drug.
 - [ ] Get all recipes.
 - [ ] Get all upgrades.
-- [ ] Get all clients.
+- [x] Get all clients.
 - [x] Get all dealers.
-- [ ] Attempt to sell to client.
+- [x] Attempt to sell to client.
 - [x] Attempt to buy from dealer.
 - [ ] Attempt to purchase upgrade.
 - [ ] Get save data.

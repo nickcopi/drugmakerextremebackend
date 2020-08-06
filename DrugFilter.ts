@@ -72,7 +72,7 @@ export class DrugFilter {
                 return drug.getGrams() >= this.drug.getGrams();
                 break;
             case DrugFilterType.DATA_MATCH:
-                return drug.getData().join('').includes(this.drug.getData().join(''));
+                return drug.getData().join('').match(/.{1,2}/g).includes(this.drug.getData().join(''));
                 break;
             case DrugFilterType.ANY:
                 return true;
@@ -83,7 +83,7 @@ export class DrugFilter {
         }
     }
     public assignChildren(): void {
-        this.drug = (<any>Object).assign(new Drug(null, null, null), this.drug);
+        this.drug = Object.assign(new Drug(null, null, null), this.drug);
         this.drug.assignChildren();
     }
 }
