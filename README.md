@@ -1,7 +1,7 @@
 
 ## Implements an API for
 - [x] Get all current drugs.  
-- [ ] Attempt to combine an existing drug with an existing drug.
+- [x] Attempt to combine an existing drug with an existing drug.
 - [ ] Get all recipes.
 - [ ] Get all upgrades.
 - [x] Get all clients.

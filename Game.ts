@@ -5,6 +5,7 @@ import { Save } from './Save.js';
 import { Dealer } from './Dealer.js';
 import { PurchaseResult } from './PurchaseResult.js';
 import { Client } from './Client.js';
+import { CombineResult } from './CombineResult.js';
 export class Game {
 	private save: Save;
 	public constructor() {
@@ -20,6 +21,9 @@ export class Game {
 	public getDrugs(): Drug[] {
 		return this.save.getDrugs();
 	}
+	public combineDrugs(drug1: Drug, drug2: Drug, quantity1: number, quantity2: number): CombineResult {
+        return this.save.combineDrugs(drug1, drug2, quantity1, quantity2)
+    }
 	public getDealers(): Dealer[] {
 		return this.save.getDealers();
 	}

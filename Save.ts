@@ -5,6 +5,7 @@ import { Wallet } from "./Wallet";
 import * as config from './config.json';
 import { Constants } from "./Constants";
 import { DrugController } from "./DrugController";
+import { CombineResult } from "./CombineResult";
 
 export class Save {
     private dealers: Dealer[];
@@ -18,6 +19,9 @@ export class Save {
         this.clients = Constants.defaultClients();
         this.dealers = Constants.defaultDealers();
         this.drugController = new DrugController();
+    }
+    public combineDrugs(drug1: Drug, drug2: Drug, quantity1: number, quantity2: number): CombineResult {
+        return this.drugController.combineDrugs(drug1, drug2, quantity1, quantity2)
     }
     public getDrugController(): DrugController {
         return this.drugController;
