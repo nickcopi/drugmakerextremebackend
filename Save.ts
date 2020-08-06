@@ -3,6 +3,7 @@ import { Dealer } from "./Dealer";
 import { Client } from "./Client";
 import { Wallet } from "./Wallet";
 import * as config from './config.json';
+import { Constants } from "./Constants";
 
 export class Save {
     private drugs: Drug[];
@@ -14,11 +15,14 @@ export class Save {
         this.level = 1;
         this.wallet = new Wallet();
         this.clients = [];
-        this.dealers = [];
-        this.drugs = [new Drug(config.stockDrugs.MARIJUANA,1,10)]
+        this.dealers = Constants.defaultDealers();
+        this.drugs = [new Drug(config.stockDrugs.MARIJUANA,1,10)];
     }
     public getDrugs(): Drug[]{
         return this.drugs;
+    }
+    public getDealers(): Dealer[]{
+        return this.dealers;
     }
     public getWallet(): Wallet {
         return this.wallet;
