@@ -6,7 +6,7 @@
 - [ ] Get all recipes.
 - [ ] Get all upgrades.
 - [ ] Get all clients.
-- [ ] Get all dealers.
+- [x] Get all dealers.
 - [ ] Attempt to sell to client.
 - [ ] Attempt to buy from dealer.
 - [ ] Attempt to purchase upgrade.
