@@ -6,10 +6,12 @@ import * as config from './config.json';
 import { Constants } from "./Constants";
 import { DrugController } from "./DrugController";
 import { CombineResult } from "./CombineResult";
+import { UpgradeState } from "./UpgradeState";
 
 export class Save {
     private dealers: Dealer[];
     private clients: Client[];
+    private upgradeStates: UpgradeState[];
     private level: number;
     private wallet: Wallet;
     private drugController: DrugController;
@@ -18,6 +20,11 @@ export class Save {
         this.wallet = new Wallet();
         this.clients = Constants.defaultClients();
         this.dealers = Constants.defaultDealers();
+        this.upgradeStates = [
+            new UpgradeState(),
+            new UpgradeState(),
+            new UpgradeState()
+        ];
         this.drugController = new DrugController();
     }
     public combineDrugs(drug1: Drug, drug2: Drug, quantity1: number, quantity2: number): CombineResult {
@@ -38,6 +45,9 @@ export class Save {
     public getWallet(): Wallet {
         return this.wallet;
     }
+    public getUpgradeStates(): UpgradeState[] {
+        return this.upgradeStates;
+    }
     public assignChildren(): void {
         this.drugController = Object.assign(new DrugController, this.drugController);
         this.drugController.assignChildren();
@@ -51,6 +61,10 @@ export class Save {
             const client: Client = Object.assign(new Client(null), obj);
             client.assignChildren();
             return client;
+        });
+        this.upgradeStates = this.upgradeStates.map(obj => {
+            const upgradeState: UpgradeState = Object.assign(new UpgradeState, obj);
+            return upgradeState;
         });
 
     }

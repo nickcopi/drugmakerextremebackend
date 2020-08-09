@@ -3,10 +3,18 @@ import { Drug } from "./Drug";
 import * as config from './config.json';
 import { Client } from "./Client";
 import { DrugFilterType } from "./DrugFilterType";
+import { Upgrade } from "./Upgrade";
 
 export class Constants {
     public static Dealers: Dealer[];
     public static Clients: Client[];
+    public static Upgrades: Upgrade[];
+    public static defaultUpgrades(): Upgrade[]{
+        if(this.Upgrades) return this.Upgrades;
+        this.Upgrades = [
+            //new Upgrade()
+        ];
+    }
     public static defaultDealers(): Dealer[] {
         if (this.Dealers) return this.Dealers;
         this.Dealers = (<any>Object).values(config.stockDrugs).map(
