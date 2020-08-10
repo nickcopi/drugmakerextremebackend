@@ -19,7 +19,7 @@ export class Save {
         this.level = 1;
         this.wallet = new Wallet();
         this.clients = Constants.defaultClients();
-        this.dealers = Constants.defaultDealers();
+        this.dealers = [Constants.defaultDealers()[0]];
         this.upgradeStates = [
             new UpgradeState(),
             new UpgradeState(),
