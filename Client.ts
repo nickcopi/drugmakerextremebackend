@@ -19,7 +19,7 @@ export class Client {
     }
 
     public getDescription(): string {
-        return `${this.name} is looking to buy ` + this.drugFilter.getDescription();
+        return `Looking to buy ` + this.drugFilter.getDescription();
     }
     public sellDrug(drug: Drug, wallet: Wallet, drugController: DrugController, quantity: number): SellResult {
         if (!this.drugFilter.matchesFilter(drug)) {

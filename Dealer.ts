@@ -12,6 +12,12 @@ export class Dealer {
         this.name = name;
         this.item = item;
     }
+    public getName(): string {
+        return this.name;
+    }
+    public getDescription(): string {
+        return `Selling ${this.item.getName()} for ${this.item.getCost()} a g.`;
+    }
     public assignChildren(): void {
         this.item = Object.assign(new Drug(null, null, null), this.item)
         this.item.assignChildren();
