@@ -44,6 +44,9 @@ export class Game {
 	public getDrugs(): Drug[] {
 		return this.save.getDrugs();
 	}
+	public getLevel(): number{
+		return this.save.getLevel();
+	}
 	public combineDrugs(drug1: Drug, drug2: Drug, quantity1: number, quantity2: number): CombineResult {
 		return this.save.combineDrugs(drug1, drug2, quantity1, quantity2, this.yieldUpgrade.getBonus());
 	}
