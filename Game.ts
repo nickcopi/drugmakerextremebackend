@@ -44,7 +44,7 @@ export class Game {
 	public getDrugs(): Drug[] {
 		return this.save.getDrugs();
 	}
-	public getLevel(): number{
+	public getLevel(): number {
 		return this.save.getLevel();
 	}
 	public combineDrugs(drug1: Drug, drug2: Drug, quantity1: number, quantity2: number): CombineResult {
@@ -80,6 +80,9 @@ export class Game {
 	}
 	public getMoney(): number {
 		return this.save.getWallet().getMoney();
+	}
+	public getSerializedSave(): string {
+		return JSON.stringify(this.save);
 	}
 
 

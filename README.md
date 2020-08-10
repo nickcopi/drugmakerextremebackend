@@ -9,7 +9,7 @@
 - [x] Attempt to sell to client.
 - [x] Attempt to buy from dealer.
 - [x] Attempt to purchase upgrade.
-- [ ] Get save data.
-- [ ] Restore save data.
+- [x] Get save data.
+- [x] Restore save data.
 - [x] Get player money.
 - [x] Get player level.
