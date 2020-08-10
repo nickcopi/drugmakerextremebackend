@@ -20,12 +20,13 @@ export class Game {
 		if (!save) this.save = new Save();
 		else {
 			this.save = JSON.parse(save);
-			Object.assign(new Save, this.save);
+			this.save = Object.assign(new Save, this.save);
 			this.save.assignChildren();
 		}
 		//console.log(new Drug([1, 2, 1, 3, 1, 4, 1, 5], 1, 10).getYield());
 		//let newSave: Save = (<any>Object).assign(new Save, JSON.parse(JSON.stringify(this.save)));
 		//newSave.assignChildren();
+		//this.save = newSave;
 		//console.log(newSave.getClients());
 		//console.log(newSave.getClients()[0].getDrugFilter().getFilterType());
 		//console.log(newSave.getWallet().getMoney())
