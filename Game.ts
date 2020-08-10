@@ -16,8 +16,13 @@ export class Game {
 	private save: Save;
 	private upgrades: Upgrade[];
 	private yieldUpgrade: YieldUpgrade;
-	public constructor() {
-		this.save = new Save();
+	public constructor(save?: string ){
+		if(!save) this.save = new Save();
+		else {
+			this.save = JSON.parse(save);
+			Object.assign(new Save,this.save);
+			this.save.assignChildren();
+		}
 		//console.log(new Drug([1, 2, 1, 3, 1, 4, 1, 5], 1, 10).getYield());
 		//let newSave: Save = (<any>Object).assign(new Save, JSON.parse(JSON.stringify(this.save)));
 		//newSave.assignChildren();
