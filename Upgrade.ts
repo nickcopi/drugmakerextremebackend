@@ -6,7 +6,7 @@ export class Upgrade {
     private name: string;
     private description: string;
     private costScale: number;
-    private state: UpgradeState;
+    protected state: UpgradeState;
     public constructor(name: string, description: string, costScale: number) {
         this.name = name;
         this.description = description;

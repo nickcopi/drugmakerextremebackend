@@ -12,3 +12,4 @@
 - [ ] Get save data.
 - [ ] Restore save data.
 - [x] Get player money.
+- [x] Get player level.

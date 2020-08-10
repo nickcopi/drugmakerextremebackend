@@ -27,8 +27,8 @@ export class Save {
         ];
         this.drugController = new DrugController();
     }
-    public combineDrugs(drug1: Drug, drug2: Drug, quantity1: number, quantity2: number): CombineResult {
-        return this.drugController.combineDrugs(drug1, drug2, quantity1, quantity2)
+    public combineDrugs(drug1: Drug, drug2: Drug, quantity1: number, quantity2: number, bonus: number): CombineResult {
+        return this.drugController.combineDrugs(drug1, drug2, quantity1, quantity2, bonus)
     }
     public getDrugController(): DrugController {
         return this.drugController;
@@ -47,6 +47,18 @@ export class Save {
     }
     public getUpgradeStates(): UpgradeState[] {
         return this.upgradeStates;
+    }
+    public getLevel(): number {
+        return this.level;
+    }
+    public incrementLevel(): void {
+        this.level++;
+    }
+    public addDealer(dealer: Dealer): void {
+        this.dealers.push(dealer);
+    }
+    public addClient(client: Client): void {
+        this.clients.push(client);
     }
     public assignChildren(): void {
         this.drugController = Object.assign(new DrugController, this.drugController);

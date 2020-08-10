@@ -10,7 +10,7 @@ export class DrugController {
     public getDrugs(): Drug[] {
         return this.drugs;
     }
-    public combineDrugs(drug1: Drug, drug2: Drug, quantity1: number, quantity2: number): CombineResult {
+    public combineDrugs(drug1: Drug, drug2: Drug, quantity1: number, quantity2: number, bonus: number): CombineResult {
         if (drug1.equals(drug2) && drug1.getGrams() < quantity1 + quantity2)
             return new CombineResult(false, `Not enough drug to do this.`);
         if (quantity1 > drug1.getGrams() || quantity2 > drug2.getGrams())
@@ -27,7 +27,7 @@ export class DrugController {
             return str;
         }).join('')].map(s => Number(s));
         const newLevel: number = Math.round((drug1.getLevel() + drug2.getLevel()) / 2) + 1;
-        const newGrams: number = Math.ceil(quantity1 * drug1.getYield() + quantity2 * drug2.getYield());
+        const newGrams: number = Math.ceil(quantity1 * drug1.getYield() + quantity2 * drug2.getYield() * bonus);
         const newDrug: Drug = new Drug(newData, newLevel, newGrams);
         this.addDrug(newDrug);
         return new CombineResult(true, `Crafted ${newDrug.getGrams()} g of ${newDrug.getName()}.`, newDrug);
