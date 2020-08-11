@@ -27,9 +27,11 @@ export class Upgrade {
     }
     public buy(wallet: Wallet): UpgradeResult {
         if(this.getCost() > wallet.getMoney())
-            return new UpgradeResult(false,`Cannot afford ${this.getName()}.`);
+            return new UpgradeResult(false,`Cannot afford upgrade "${this.getName()}". Need $${this.getCost()-wallet.getMoney()} more.`);
+        wallet.removeMoney(this.getCost());
+        this.state.incrementLevel();
         this.onBuy();
-        return new UpgradeResult(true,`Purchased upgrade ${this.getName()}.`)
+        return new UpgradeResult(true,`Purchased upgrade "${this.getName()}".`)
     }
     public onBuy(): void {
 

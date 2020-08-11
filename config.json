@@ -35,6 +35,7 @@
 		"am"
 	],
 	"anyReduction":0.5,
+	"bulkReduction":0.75,
 	"titles": [
 		"Stoner",
 		"Homie",

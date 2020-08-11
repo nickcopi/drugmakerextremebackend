@@ -2,7 +2,7 @@ import { Upgrade } from "./Upgrade";
 
 export class YieldUpgrade extends Upgrade {
     constructor(onBuy: (()=>void)) {
-        super('Boosted Yield', 'Boosts yield of new drug when combining.', 10);
+        super('Boosted Yield', 'Boosts yield of new drug when combining.', 7);
         this.onBuy = onBuy;
     }
     public getBonus(): number{

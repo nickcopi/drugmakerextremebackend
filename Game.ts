@@ -64,9 +64,10 @@ export class Game {
 		this.save.incrementLevel();
 		const nextDealer: Dealer = Constants.defaultDealers()[this.save.getLevel()];
 		if (nextDealer) this.save.addDealer(nextDealer);
+		this.save.addClient(new Client(this.save.getLevel()));
 	}
 	private advertise(): void {
-		for (let i: number = 0; i < Math.floor((Math.random() * 6)) + 5; i++) {
+		for (let i: number = 0; i < 3; i++) {
 			this.save.addClient(new Client(this.save.getLevel()));
 		}
 	}
