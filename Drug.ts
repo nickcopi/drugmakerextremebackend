@@ -13,7 +13,7 @@ export class Drug implements Item {
 		return this.grams;
 	}
 	public setGrams(grams: number): void {
-		this.grams += grams;
+		this.grams = grams;
 	}
 	public addGrams(grams: number): void {
 		this.grams += grams;
