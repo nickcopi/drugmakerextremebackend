@@ -9,4 +9,7 @@ export class CombineResult {
         this.flavorText = flavorText;
         this.drug = drug;
     }
+    getDrug(): Drug {
+        return this.drug;
+    }
 }

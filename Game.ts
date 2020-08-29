@@ -12,6 +12,7 @@ import { Constants } from './Constants.js';
 import { AdvertisingUpgrade } from './AdvertisingUpgrade.js';
 import { YieldUpgrade } from './YieldUpgrade.js';
 import { SellResult } from './SellResult.js';
+import { Recipe } from './Recipe.js';
 export class Game {
 	private save: Save;
 	private upgrades: Upgrade[];
@@ -59,6 +60,12 @@ export class Game {
 	}
 	public getUpgrades(): Upgrade[] {
 		return this.upgrades;
+	}
+	public getRecipes(): Recipe[] {
+		return this.save.getRecipes();
+	}
+	public reset(): void {
+		this.save = new Save();
 	}
 	private levelUp(): void {
 		this.save.incrementLevel();
