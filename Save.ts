@@ -71,6 +71,9 @@ export class Save {
     public addClient(client: Client): void {
         this.clients.push(client);
     }
+    public getValidDrugs(client: Client): Drug[] {
+        return this.drugController.getValidDrugs(client);
+    }
     public assignChildren(): void {
         this.drugController = Object.assign(new DrugController, this.drugController);
         this.drugController.assignChildren();

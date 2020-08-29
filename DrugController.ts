@@ -1,6 +1,7 @@
 import { Drug } from "./Drug";
 import * as config from './config.json';
 import { CombineResult } from "./CombineResult";
+import { Client } from "./Client";
 
 export class DrugController {
     private drugs: Drug[];
@@ -9,6 +10,11 @@ export class DrugController {
     }
     public getDrugs(): Drug[] {
         return this.drugs;
+    }
+    public getValidDrugs(client: Client): Drug[] {
+        return this.drugs.filter(drug=>{
+            return client.getDrugFilter().matchesFilter(drug);
+        });
     }
     public combineDrugs(drug1: Drug, drug2: Drug, quantity1: number, quantity2: number, bonus: number): CombineResult {
         if (drug1.equals(drug2) && drug1.getGrams() < quantity1 + quantity2)

@@ -14,3 +14,4 @@
 - [x] Get player money.
 - [x] Get player level.
 - [x] Reset player save.
+- [ ] Get valid drugs for a specified client.

@@ -46,6 +46,9 @@ export class Game {
 	public getDrugs(): Drug[] {
 		return this.save.getDrugs();
 	}
+	public getValidDrugs(client: Client): Drug[] {
+		return this.save.getValidDrugs(client);
+	}
 	public getLevel(): number {
 		return this.save.getLevel();
 	}
