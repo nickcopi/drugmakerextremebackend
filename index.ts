@@ -1,9 +1,9 @@
 import { Game } from './Game'
 import { Wallet } from './Wallet';
-const game: Game = new Game();
-const drugs = game.getDrugs();
-console.log(game.combineDrugs(drugs[0],drugs[0],1,1));
-console.log(game.getDrugs());
+//const game: Game = new Game();
+//const drugs = game.getDrugs();
+//console.log(game.combineDrugs(drugs[0],drugs[0],1,1));
+//console.log(game.getDrugs());
 //console.log(game.getRecipes());
 //console.log(game.getRecipes()[0].toString());
 //game.reset();
