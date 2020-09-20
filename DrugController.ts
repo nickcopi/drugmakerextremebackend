@@ -12,11 +12,13 @@ export class DrugController {
         return this.drugs;
     }
     public getValidDrugs(client: Client): Drug[] {
-        return this.drugs.filter(drug=>{
+        return this.drugs.filter(drug => {
             return client.getDrugFilter().matchesFilter(drug);
         });
     }
     public combineDrugs(drug1: Drug, drug2: Drug, quantity1: number, quantity2: number, bonus: number): CombineResult {
+        if (!Drug.validQuanity(quantity1) || !Drug.validQuanity(quantity2))
+            return new CombineResult(false, `Invalid drug quantity.`);
         if (drug1.equals(drug2) && drug1.getGrams() < quantity1 + quantity2)
             return new CombineResult(false, `Not enough drug to do this.`);
         if (quantity1 > drug1.getGrams() || quantity2 > drug2.getGrams())

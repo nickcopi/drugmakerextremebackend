@@ -24,7 +24,7 @@ export class Dealer {
     }
     public purchase(quantity: number, wallet: Wallet, drugController: DrugController): PurchaseResult {
         const costDiff: number = wallet.getMoney() - this.item.getStackCost() * quantity;
-        if (quantity <= 0 || quantity !== Math.round(quantity))
+        if (!Drug.validQuanity(quantity))
             return new PurchaseResult(false, `Cannot purchase ${quantity} g of ${this.item.getName()}. Invalid quantity!`, this.item, costDiff);
         if (costDiff < 0)
             return new PurchaseResult(false, `Cannot afford ${quantity} g of ${this.item.getName()}. $${Math.abs(costDiff)} short!`, this.item, costDiff);

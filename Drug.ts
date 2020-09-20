@@ -4,6 +4,9 @@ export class Drug implements Item {
 	private data: number[];
 	private grams: number;
 	private level: number;
+	public static validQuanity(quantity: number): boolean {
+		return quantity > 0 && Math.round(quantity) === quantity;
+	}
 	public constructor(data: number[], level: number, grams: number) {
 		this.level = level;
 		this.data = data;

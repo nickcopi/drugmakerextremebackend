@@ -22,6 +22,8 @@ export class Client {
         return `Looking to buy ` + this.drugFilter.getDescription();
     }
     public sellDrug(drug: Drug, wallet: Wallet, drugController: DrugController, quantity: number): SellResult {
+        if (!Drug.validQuanity(quantity))
+            return new SellResult(false, `Invalid drug quantity.`);
         if (!this.drugFilter.matchesFilter(drug)) {
             return new SellResult(false, `The client is not looking for this kind of drug.`);
         }
